@@ -1,0 +1,42 @@
+[package]
+name = "jh71xx-hal-examples"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies.embedded-io]
+version = "0.6"
+
+[dependencies.embedded-hal]
+version = "1.0.0-rc.2"
+
+[dependencies.jh71xx-hal]
+version = "0.1"
+#git = "https://github.com/rmsyn/jh71xx-hal"
+path = "../jh71xx-hal"
+features = ["visionfive2-12a-rt"]
+
+[dependencies.riscv]
+version = "0.10"
+
+[dependencies.panic-halt]
+version = "0.2"
+
+[dependencies.ushell]
+version = "0.3"
+git = "https://github.com/rmsyn/ushell"
+branch = "dev"
+
+[dependencies.riscv-rt]
+version = "0.11"
+git = "https://github.com/rust-embedded/riscv-rt"
+
+[[bin]]
+name = "shell_console"
+path = "src/shell.rs"
+
+[[bin]]
+name = "blinky"
+path = "src/blinky.rs"
+
+[features]
+s-mode = ["riscv-rt/s-mode"]
